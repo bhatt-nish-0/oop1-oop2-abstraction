@@ -47,8 +47,22 @@ public class Intro {
         //customThread.run();
         customThread.start();
 
+        Runnable myRunnable = () -> {
+          for (int i = 1; i<=8; i++) {
+              System.out.print(" 2 ");
+              try {
+                  TimeUnit.MILLISECONDS.sleep(250);
+              }catch (InterruptedException e) {
+                  e.printStackTrace();
+              }
+          }
+        };
+
+        Thread myThread = new Thread(myRunnable);
+        myThread.start();
+
         for (int i = 1; i<=3 ; i++) {
-            System.out.println(" 0 ");
+            System.out.print(" 0 ");
             try {
                 TimeUnit.SECONDS.sleep(1);
             }catch (InterruptedException e) {
